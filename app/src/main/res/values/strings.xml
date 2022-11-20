@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">ToDoList</string>
+    <string name="entrez_la_tache">Entrez la tache</string>
+    <string name="no_img_found">No image found</string>
+    <string name="scroll_content">scroll_content</string>
+    <string name="ListHours">14:18:00</string>
+    <string name="ListDate">2019-11-27</string>
+    <string name="ListTitle">ACHETER DU PAIN</string>
+    <string name="vider_la_liste">Vider la liste</string>
+    <string name="retirer">Retirer les tâches validées</string>
+    <string name="menu">Menu</string>
 </resources>
