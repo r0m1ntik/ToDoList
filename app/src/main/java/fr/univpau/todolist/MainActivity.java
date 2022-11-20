@@ -1,17 +1,19 @@
 package fr.univpau.todolist;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView mTextView;
     private TaskAdapter adapter;
     private Collection<Task> collectionsTaskAdapter;
+    ImageButton mImageButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         mTextView = findViewById(R.id.TextAjouterToDo);
-        ImageButton mImageButton = findViewById(R.id.AjouterTacheMain);
+        mImageButton = findViewById(R.id.AjouterTacheMain);
 
         //mImageButton.setClickable(false);
         mImageButton.setOnClickListener(this);
@@ -99,5 +102,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Task mTask = new Task(false, mTextView.getText().toString(), fDate.format(currentTime), fTime.format(currentTime));
         adapter.add(mTask);
         collectionsTaskAdapter.add(mTask);
+
+        Animation scaleUp;
+        scaleUp = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.scale_up);
+        mImageButton.startAnimation(scaleUp);
     }
 }
